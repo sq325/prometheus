@@ -102,6 +102,7 @@ func withStackTracer(h http.Handler, l log.Logger) http.Handler {
 				panic(err)
 			}
 		}()
+		w.Header().Set("X-Frame-Options", "DENY")
 		h.ServeHTTP(w, r)
 	})
 }

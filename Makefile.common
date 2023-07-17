@@ -29,8 +29,11 @@ GO           ?= go
 GOFMT        ?= $(GO)fmt
 FIRST_GOPATH := $(firstword $(subst :, ,$(shell $(GO) env GOPATH)))
 GOOPTS       ?=
-GOHOSTOS     ?= $(shell $(GO) env GOHOSTOS)
-GOHOSTARCH   ?= $(shell $(GO) env GOHOSTARCH)
+# GOHOSTOS     ?= $(shell $(GO) env GOHOSTOS)
+# GOHOSTARCH   ?= $(shell $(GO) env GOHOSTARCH)
+GOHOSTOS     = $(shell $(GO) env GOHOSTOS)
+GOHOSTARCH   = $(shell $(GO) env GOHOSTARCH)
+
 
 GO_VERSION        ?= $(shell $(GO) version)
 GO_VERSION_NUMBER ?= $(word 3, $(GO_VERSION))
